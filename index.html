@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Portfolio</title>
+</head>
+<body>
+  <header>
+    <a href class="logo">Portfolio</a>
+    <div class="toggle" onclick="toggleMenu();"></div>
+    <ul class="menu">
+      <li><a href="#home" onclick="toggleMenu();">Início</a></li>
+      <li><a href="#about" onclick="toggleMenu();">Sobre</a></li>
+      <li><a href="#services" onclick="toggleMenu();">Serviços</a></li>
+      <li><a href="#work" onclick="toggleMenu();">Trabalhos</a></li>
+      <li><a href="#testimonial" onclick="toggleMenu();">Testemunho</a></li>
+      <li><a href="#contact" onclick="toggleMenu();">Contato</a></li>
+    </ul>
+  </header>
+
+  <section class="banner" id="home">
+    <div class="textBx">
+      <h2>Olá, sou <br><span>Leonardo Cesário</span>.</h2>
+      <h3>Sou um Programador.</h3>
+      <a href="#about" class="btn">Sobre Mim</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="heading">
+      <h2>Sobre Mim</h2>
+    </div>
+    <div class="content">
+      <div class="contentBx">
+        <h3>Sou um Programdor.</h3>
+        <p>Eu me chamo Leonardo, tenho 18 anos, moro em São Paulo e atualmente estou em busca do meu primiero emprego, com preferência na área de tecnologia. 
+        <br><br>Eu me interessei por tecnologia, pela a gigantesca quantidade de coisas que dá para fazer. A área que mais me chamou atenção foi a de Programação. Eu já cursei Analise em Desenvolvimento de Sistemas pela Etec Jaraguá e atualmente estou cursando o terceiro semestre em Analise em Desenvolvimento de Sistemas no IFSP Pirituba. 
+        </p>
+      </div>
+      <div class="w50">
+        <img src="img1.jpg" class="img">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="heading white">
+      <h2>Meus Serviços</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+    <div class="content">
+      <div class="servicesBx">
+        <img src="icon1.png">
+        <h2>Web Design</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem cumque nam, fugit distinctio, atque vero soluta molestiae, laborum rerum laboriosam a quas consectetur nihil impedit quam temporibus harum voluptate.</p>
+      </div>
+      <div class="servicesBx">
+        <img src="icon2.png">
+        <h2>Desenvolvimento Web</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem cumque nam, fugit distinctio, atque vero soluta molestiae, laborum rerum laboriosam a quas consectetur nihil impedit quam temporibus harum voluptate.</p>
+      </div>
+      <div class="servicesBx">
+        <img src="icon3.png">
+        <h2>Android App</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem cumque nam, fugit distinctio, atque vero soluta molestiae, laborum rerum laboriosam a quas consectetur nihil impedit quam temporibus harum voluptate.</p>
+      </div>
+      <div class="servicesBx">
+        <img src="icon4.png">
+        <h2>Fotografia</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem cumque nam, fugit distinctio, atque vero soluta molestiae, laborum rerum laboriosam a quas consectetur nihil impedit quam temporibus harum voluptate.</p>
+      </div>
+      <div class="servicesBx">
+        <img src="icon5.png">
+        <h2>Redação de conteúdo</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem cumque nam, fugit distinctio, atque vero soluta molestiae, laborum rerum laboriosam a quas consectetur nihil impedit quam temporibus harum voluptate.</p>
+      </div>
+      <div class="servicesBx">
+        <img src="icon6.png">
+        <h2>Edição de Vídeo</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem cumque nam, fugit distinctio, atque vero soluta molestiae, laborum rerum laboriosam a quas consectetur nihil impedit quam temporibus harum voluptate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="heading">
+      <h2>Meus Trabalhos</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+    <div class="content">
+      <div class="workBx">
+        <img src="product1.jpg">
+      </div>
+      <div class="workBx">
+        <img src="product2.jpg">
+      </div>
+      <div class="workBx">
+        <img src="product3.jpg">
+      </div>
+      <div class="workBx">
+        <img src="product4.jpg">
+      </div>
+    </div>
+    <div class="heading">
+      <a href="#" class="btn">Ver Mais</a>
+    </div>
+  </section>
+  
+  <section class="testimonial" id="testimonial">
+    <div class="heading">
+      <h2>Testemunhos</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+    <div class="content">
+      <div class="testimonialBx">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe rerum dolores animi, aliquid doloribus placeat similique repellendus eaque aliquam iure rem a qui! Fuga non alias natus repellendus. Laudantium, ab.</p>
+        <h3>Alguém Famosos<br><br><span>Designer Creativo</span></h3>
+      </div>
+      <div class="testimonialBx">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe rerum dolores animi, aliquid doloribus placeat similique repellendus eaque aliquam iure rem a qui! Fuga non alias natus repellendus. Laudantium, ab.</p>
+        <h3>Alguém Famosos<br><br><span>Designer Creativo</span></h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="heading white">
+      <h2>Contato</h2>
+    </div>
+    <div class="content">
+      <div class="contactInfo">
+        <h3>Informações para Contato</h3>
+        <div class="contactInfoBx">
+          <div class="box">
+            <div class="icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="text">
+              <h3>Endereço</h3>
+              <p>Rua Jairo de Almeida Machado 253, Casa 56<br>SP - São Paulo<br></p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="text">
+              <h3>Celular</h3>
+              <p>+55 (11)939321415</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="text">
+              <h3>Email</h3>
+              <p>leocesario.abta@gmail.com <a href="mailto:leocesario.abta@gmail.com"></a></p>
+            </div>
+          </div>
+          <ul class="social">
+            <li><a href="https://wa.me/5511939321415" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/leonardocesarioat" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="formBx">
+        <form>
+          <h3>Mensagem</h3>
+          <input type="text" name="nome" placeholder="Nome Completo" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea placeholder="Sua Mensagem" name="msg" required></textarea>
+          <input type="submit" value="Send">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    window.addEventListener('scroll', function(){
+      var header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    function toggleMenu(){
+      var menuToggle = document.querySelector('.toggle');
+      var menu = document.querySelector('.menu');
+      menuToggle.classList.toggle('active');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
