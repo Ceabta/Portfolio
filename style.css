@@ -212,7 +212,7 @@ img{
 }
 .box_con:nth-child(4):before,
 .box_con:nth-child(4):after{
-  background: linear-gradient(315deg, #ff0303,#ff00ea);
+  background: linear-gradient(315deg, #ff0303,#d805a3);
 }
 .box_con:nth-child(5):before,
 .box_con:nth-child(5):after{
