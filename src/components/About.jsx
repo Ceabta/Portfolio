@@ -89,7 +89,7 @@ export default function About() {
               <span className={styles.desc}>Anos de experiência</span>
             </div>
             <div className={styles.fact}>
-              <span className={styles.num}>38</span>
+              <span className={styles.num}>30+</span>
               <span className={styles.desc}>Repositórios no GitHub</span>
             </div>
             <div className={styles.fact}>
