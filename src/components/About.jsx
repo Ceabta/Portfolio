@@ -16,7 +16,7 @@ function getAge() {
 const experience = [
   {
     company: 'Crescer Informática Ltda',
-    logo: '../public/logo-crescer.jfif',
+    logo: '/logo-crescer.jfif',
     totalDuration: '3 anos 7 meses',
     roles: [
       {
