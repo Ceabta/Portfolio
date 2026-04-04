@@ -47,6 +47,7 @@ export default function Hero() {
           <span>&nbsp;&nbsp;nome: <span className={styles.codeStr}>'Leonardo'</span>,</span>
           <span>&nbsp;&nbsp;foco: <span className={styles.codeStr}>'Full Stack'</span>,</span>
           <span>&nbsp;&nbsp;café: <span className={styles.codeBool}>false</span></span>
+          <span>&nbsp;&nbsp;suco: <span className={styles.codeBool}>goiaba ❤</span></span>
           <span>{'}'}</span>
         </div>
       </div>
