@@ -32,7 +32,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.stack}>
-          {['React', 'Java', 'C#', 'HTML/CSS', 'MySQL'].map((t) => (
+          {['JS', 'HTML/CSS', 'Java', 'SQL', 'C & C#', 'React', 'TypeScript', 'Flutter', 'PHP'].map((t) => (
             <span key={t} className={styles.tag}>{t}</span>
           ))}
         </div>

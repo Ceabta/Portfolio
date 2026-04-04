@@ -1,4 +1,5 @@
 import { FaHtml5, FaCss3Alt, FaJava, FaReact, FaJs, FaGithub, FaWindows, FaPhp } from "react-icons/fa";
+import { FaFlutter } from "react-icons/fa6";
 import { DiMsqlServer } from "react-icons/di";
 import { DiPhotoshop } from "react-icons/di";
 import { PiMicrosoftExcelLogo } from "react-icons/pi";
@@ -50,11 +51,18 @@ const skills = [
     color: '#9b59b6',
   },
   {
-    name: 'ReactJS',
+    name: 'React',
     level: 60,
     icon: <FaReact />,
     desc: 'Componentes funcionais, hooks, estado e construção de UIs modernas.',
     color: '#61dafb',
+  },
+  {
+    name: 'Flutter',
+    level: 20,
+    icon: <FaFlutter />,
+    desc: 'Desenvolvimento mobile multiplataforma com Dart.',
+    color: '#54c5f8',
   },
   {
     name: 'PHP',
