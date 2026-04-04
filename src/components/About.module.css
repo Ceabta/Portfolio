@@ -1,0 +1,264 @@
+.about {
+  background: var(--bg2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 80px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #888;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+.bio strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.facts {
+  display: flex;
+  gap: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Experience */
+.expSection {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.expLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 28px;
+}
+
+.expList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.expItem {
+  position: relative;
+  padding: 24px 0 24px 20px;
+  border-left: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.expItem::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 30px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--muted);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.expItem:hover::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.expItem:hover {
+  border-color: var(--accent);
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.expRole {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.expCompany {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.expCompanyGroup {
+  margin-bottom: 8px;
+}
+
+.expCompanyHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.expCompanyLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.expCompanyName {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.expCompanyDuration {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.expRoleList {
+  padding-left: 20px;
+  border-left: 1px solid var(--border);
+  margin-left: 19px;
+}
+
+.expType {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.expMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.expPeriod {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.expDuration {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #444;
+}
+
+.expLocation {
+  font-size: 0.78rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.expDesc {
+  font-size: 0.82rem;
+  color: #777;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.expTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.expTag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about {
+    padding: 100px 24px;
+  }
+}
