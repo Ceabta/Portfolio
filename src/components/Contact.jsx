@@ -4,19 +4,50 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 import styles from './Contact.module.css'
 
+// Chave pública do Web3Forms (pode ficar no código). Pegue a sua em https://web3forms.com
+const WEB3FORMS_KEY = 'c329efe3-43d3-4829-98b8-67a5c9dafd30'
+const EMAIL = 'leocesario.abta@gmail.com'
+
 export default function Contact() {
   const [form, setForm] = useState({ nome: '', email: '', msg: '' })
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   const handleChange = (e) =>
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const mailto = `mailto:leocesario.abta@gmail.com?subject=Contato via Portfolio - ${form.nome}&body=${encodeURIComponent(form.msg)}%0A%0AEmail de resposta: ${form.email}`
-    window.open(mailto)
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
+
+    // Sem chave configurada, mantém o comportamento antigo (abre o app de e-mail)
+    if (!WEB3FORMS_KEY) {
+      window.open(`mailto:${EMAIL}?subject=Contato via Portfolio - ${form.nome}&body=${encodeURIComponent(form.msg)}%0A%0AEmail de resposta: ${form.email}`)
+      return
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Contato via Portfolio - ${form.nome}`,
+          from_name: 'Portfolio',
+          name: form.nome,
+          email: form.email,
+          replyto: form.email,
+          message: form.msg,
+          botcheck: e.target.botcheck.checked,
+        }),
+      })
+      const data = await res.json()
+      if (!data.success) throw new Error(data.message)
+      setStatus('sent')
+      setForm({ nome: '', email: '', msg: '' })
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -85,6 +116,8 @@ export default function Contact() {
 
         <div className={styles.right}>
           <form className={styles.form} onSubmit={handleSubmit}>
+            {/* Anti-spam: campo invisível que só bots preenchem */}
+            <input type="checkbox" name="botcheck" className={styles.honeypot} tabIndex={-1} autoComplete="off" />
             <div className={styles.field}>
               <label className={styles.fieldLabel}>Nome</label>
               <input
@@ -120,9 +153,20 @@ export default function Contact() {
                 required
               />
             </div>
-            <button type="submit" className={styles.submit}>
-              {sent ? 'Enviado! ✓' : 'Enviar Mensagem →'}
+            <button type="submit" className={styles.submit} disabled={status === 'sending'}>
+              {status === 'sending' ? 'Enviando...' : status === 'sent' ? 'Enviado! ✓' : 'Enviar Mensagem →'}
             </button>
+            {status === 'sent' && (
+              <p className={styles.feedback} role="status">
+                Mensagem recebida! Respondo assim que possível.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className={`${styles.feedback} ${styles.feedbackError}`} role="alert">
+                Não consegui enviar agora. Tente de novo ou escreva direto para{' '}
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+              </p>
+            )}
           </form>
         </div>
       </div>

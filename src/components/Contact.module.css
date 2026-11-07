@@ -172,6 +172,32 @@ a.contactItem:hover {
   transform: translateY(-2px);
 }
 
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.honeypot {
+  display: none;
+}
+
+.feedback {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  line-height: 1.6;
+}
+
+.feedbackError {
+  color: #ff6b6b;
+}
+
+.feedbackError a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;
