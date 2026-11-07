@@ -7,7 +7,7 @@ export default function Hero() {
 
       <div className={styles.content}>
         <p className={styles.greeting}>
-          <span className={styles.dot} /> Aberto a novos desafios
+          <span className={styles.dot} /> Dev na Crescer Informática
         </p>
 
         <h1 className={styles.title}>
