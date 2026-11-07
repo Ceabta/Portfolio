@@ -13,17 +13,40 @@ function getAge() {
   return today.getFullYear() - birthYear - (hasTurnedThisYear ? 0 : 1)
 }
 
+
+const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
+
+// Conta meses de forma inclusiva (igual ao LinkedIn): set/2025 → nov/2026 = 15 meses
+function monthsBetween([y1, m1], end) {
+  const today = new Date()
+  const [y2, m2] = end ?? [today.getFullYear(), today.getMonth() + 1]
+  return (y2 - y1) * 12 + (m2 - m1) + 1
+}
+
+function formatDuration(months) {
+  const anos = Math.floor(months / 12)
+  const meses = months % 12
+  const parts = []
+  if (anos) parts.push(`${anos} ${anos === 1 ? 'ano' : 'anos'}`)
+  if (meses) parts.push(`${meses} ${meses === 1 ? 'mês' : 'meses'}`)
+  return parts.join(' ')
+}
+
+function formatPeriod(start, end) {
+  const fmt = ([y, m]) => `${MESES[m - 1]} de ${y}`
+  return `${fmt(start)} — ${end ? fmt(end) : 'momento'}`
+}
+
 const experience = [
   {
     company: 'Crescer Informática Ltda',
     logo: '/logo-crescer.jfif',
-    totalDuration: '3 anos 7 meses',
     roles: [
       {
         role: 'Analista de Desenv. de Sistema Junior',
         type: 'Tempo integral',
-        period: 'set de 2025 — momento',
-        duration: '8 meses',
+        start: [2025, 9],
+        end: null,
         location: null,
         desc: null,
         tags: ['PHP', 'JavaScript', 'React', 'SQL', 'Laravel', 'PostgreSQL', 'TypeScript'],
@@ -31,8 +54,8 @@ const experience = [
       {
         role: 'Helpdesk de TI',
         type: 'Tempo integral',
-        period: 'jan de 2024 — set de 2025',
-        duration: '1 ano 9 meses',
+        start: [2024, 1],
+        end: [2025, 9],
         location: 'São Paulo, Brasil · Remoto',
         desc: 'Atendimento e esclarecimento de dúvidas de clientes via telefone, chat e e-mail. Análise técnica de problemas, abertura de chamados, criação de manuais técnicos, treinamento e implantação de sistemas em clientes. Desenvolvimento de relatórios SQL personalizados.',
         tags: ['SQL', 'Microsoft SQL Server', 'Banco de dados'],
@@ -40,8 +63,8 @@ const experience = [
       {
         role: 'Estagiário de Suporte',
         type: 'Estágio',
-        period: 'out de 2022 — dez de 2023',
-        duration: '1 ano 3 meses',
+        start: [2022, 10],
+        end: [2023, 12],
         location: 'São Paulo, Brasil',
         desc: 'Atendimento e esclarecimento de dúvidas de clientes via telefone, chat e e-mail. Análise técnica de problemas, abertura de chamados, criação de manuais técnicos, treinamento e implantação de sistemas em clientes. Desenvolvimento de relatórios SQL personalizados.',
         tags: ['SQL', 'Microsoft SQL Server', 'Banco de dados'],
@@ -50,8 +73,19 @@ const experience = [
   },
 ]
 
+// Início da empresa = cargo mais antigo; fim = cargo atual (ou o mais recente)
+function companyMonths(company) {
+  const starts = company.roles.map((r) => r.start)
+  const first = starts.reduce((a, b) => (a[0] * 12 + a[1] <= b[0] * 12 + b[1] ? a : b))
+  const current = company.roles.find((r) => !r.end)
+  return monthsBetween(first, current ? null : company.roles[0].end)
+}
+
 export default function About() {
   const age = getAge()
+  const firstJob = experience.flatMap((c) => c.roles.map((r) => r.start))
+    .reduce((a, b) => (a[0] * 12 + a[1] <= b[0] * 12 + b[1] ? a : b))
+  const yearsExp = Math.floor(monthsBetween(firstJob) / 12)
 
   return (
     <section className={styles.about} id="about">
@@ -85,7 +119,7 @@ export default function About() {
 
           <div className={styles.facts}>
             <div className={styles.fact}>
-              <span className={styles.num}>3+</span>
+              <span className={styles.num}>{yearsExp}+</span>
               <span className={styles.desc}>Anos de experiência</span>
             </div>
             <div className={styles.fact}>
@@ -108,11 +142,11 @@ export default function About() {
                   {/* Cabeçalho da empresa */}
                   <div className={styles.expCompanyHeader}>
                     <div className={styles.expCompanyLogo}>
-                      <img src={company.logo} className={styles.expCompanyImg} />
+                      <img src={company.logo} alt={`Logo da ${company.company}`} className={styles.expCompanyImg} />
                     </div>
                     <div>
                       <h4 className={styles.expCompanyName}>{company.company}</h4>
-                      <span className={styles.expCompanyDuration}>{company.totalDuration}</span>
+                      <span className={styles.expCompanyDuration}>{formatDuration(companyMonths(company))}</span>
                     </div>
                   </div>
 
@@ -126,8 +160,8 @@ export default function About() {
                             <span className={styles.expType}>{exp.type}</span>
                           </div>
                           <div className={styles.expMeta}>
-                            <span className={styles.expPeriod}>{exp.period}</span>
-                            <span className={styles.expDuration}>{exp.duration}</span>
+                            <span className={styles.expPeriod}>{formatPeriod(exp.start, exp.end)}</span>
+                            <span className={styles.expDuration}>{formatDuration(monthsBetween(exp.start, exp.end))}</span>
                           </div>
                         </div>
                         {exp.location && (

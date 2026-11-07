@@ -29,8 +29,8 @@ export default function Contact() {
             <span className={styles.accent}>conversar</span>?
           </h2>
           <p className={styles.sub}>
-            Estou em busca da minha primeira oportunidade na área de tecnologia.
-            Se você tem uma vaga, um projeto ou só quer trocar uma ideia — me manda uma mensagem.
+            Estou aberto a novas oportunidades e projetos.
+            Se você tem uma vaga, um projeto ou só quer trocar uma ideia, me manda uma mensagem.
           </p>
 
           <div className={styles.contactItems}>

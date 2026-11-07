@@ -37,7 +37,7 @@
 
 .item {
   display: grid;
-  grid-template-columns: 80px 1fr auto;
+  grid-template-columns: 60px 200px 1fr auto;
   align-items: center;
   gap: 40px;
   padding: 40px 0;
@@ -47,6 +47,46 @@
 
 .item:hover {
   background: rgba(0,255,136,0.02);
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transition: border-color 0.2s;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.thumbIcon {
+  font-size: 2.4rem;
+  color: var(--accent);
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.3s;
+}
+
+.item:hover .thumb {
+  border-color: rgba(0,255,136,0.35);
+}
+
+.item:hover .thumbIcon {
+  opacity: 1;
+  transform: scale(1.08);
 }
 
 .numCol {
@@ -71,28 +111,43 @@
   color: var(--accent);
 }
 
+/* Selo de status do projeto — a cor vem do tipo (warning, info, wip) */
 .notice {
+  --nc: #ffb020;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: #ffb020;
+  color: var(--nc);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 3px 10px;
-  border: 1px solid rgba(255, 176, 32, 0.3);
-  background: rgba(255, 176, 32, 0.06);
+  border: 1px solid color-mix(in srgb, var(--nc) 30%, transparent);
+  background: color-mix(in srgb, var(--nc) 6%, transparent);
   border-radius: 2px;
   margin-bottom: 10px;
 }
+
+.warning { --nc: #ffb020; }
+.info { --nc: #4d9fff; }
+.wip { --nc: #b48cff; }
 
 .noticeDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffb020;
+  background: var(--nc);
   flex-shrink: 0;
+}
+
+.wip .noticeDot {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
 }
 
 .desc {
@@ -197,5 +252,8 @@
   }
   .numCol {
     display: none;
+  }
+  .thumb {
+    aspect-ratio: 16 / 9;
   }
 }

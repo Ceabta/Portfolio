@@ -28,13 +28,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
 .card {
   position: relative;
-  padding: 28px;
+  padding: 32px;
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -67,52 +67,74 @@
 .cardTop {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin-bottom: 12px;
 }
 
 .icon {
-  font-size: 1.3rem;
-  width: 36px;
-  text-align: center;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.15rem;
+  color: var(--clr, var(--accent));
+  border: 1px solid var(--border);
+  border-radius: 4px;
   flex-shrink: 0;
 }
 
-.bar {
+.groupName {
   flex: 1;
-  height: 4px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.barFill {
-  height: 100%;
-  background: var(--clr, var(--accent));
-  border-radius: 2px;
-  transition: width 1s ease;
-}
-
-.percent {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--muted);
-  flex-shrink: 0;
-  min-width: 32px;
-  text-align: right;
-}
-
-.skillName {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 8px;
   color: var(--text);
 }
 
-.skillDesc {
+.count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.groupDesc {
   font-size: 0.85rem;
   color: var(--muted);
   line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+
+.item:hover {
+  border-color: var(--ic, var(--accent));
+}
+
+.itemIcon {
+  display: inline-flex;
+  font-size: 0.95rem;
+  color: var(--ic, var(--accent));
 }
 
 @media (max-width: 768px) {

@@ -1,110 +1,70 @@
-import { FaHtml5, FaCss3Alt, FaJava, FaReact, FaJs, FaGithub, FaWindows, FaPhp } from "react-icons/fa";
-import { FaFlutter } from "react-icons/fa6";
-import { DiMsqlServer } from "react-icons/di";
-import { DiPhotoshop } from "react-icons/di";
-import { PiMicrosoftExcelLogo } from "react-icons/pi";
-import { TbBrandCSharp } from "react-icons/tb";
-import { MdTranslate } from "react-icons/md";
+import { FaHtml5, FaCss3Alt, FaJava, FaReact, FaJs, FaGithub, FaPhp } from 'react-icons/fa'
+import {
+  SiNextdotjs, SiTypescript, SiTailwindcss, SiSupabase, SiLaravel, SiPostgresql,
+  SiFirebase, SiDocker, SiVite, SiVercel, SiNodedotjs, SiMysql, SiFlutter,
+} from 'react-icons/si'
+import { DiMsqlServer, DiPhotoshop } from 'react-icons/di'
+import { TbBrandCSharp } from 'react-icons/tb'
+import { MdTranslate } from 'react-icons/md'
+import { LuMonitor, LuServer, LuDatabase, LuWrench } from 'react-icons/lu'
 import styles from './Skills.module.css'
 
-const skills = [
+const groups = [
   {
-    name: 'JavaScript',
-    level: 60,
-    icon: <FaJs />,
-    desc: 'Manipulação do DOM, lógica client-side e integração com frameworks modernos.',
-    color: '#f7df1e',
-  },
-  {
-    name: 'HTML 5',
-    level: 60,
-    icon: <FaHtml5 />,
-    desc: 'Estruturação semântica de páginas web com foco em acessibilidade.',
-    color: '#e34f26',
-  },
-  {
-    name: 'CSS 3',
-    level: 60,
-    icon: <FaCss3Alt />,
-    desc: 'Estilização responsiva, animações e layouts com Flexbox e Grid.',
-    color: '#1572b6',
-  },
-  {
-    name: 'Java',
-    level: 60,
-    icon: <FaJava />,
-    desc: 'POO, estruturas de dados, lógica de negócio e aplicações desktop.',
-    color: '#f7c948',
-  },
-  {
-    name: 'MySQL & SQLServer',
-    level: 60,
-    icon: <DiMsqlServer />,
-    desc: 'Modelagem, consultas, joins e desenvolvimento de relatórios personalizados.',
-    color: '#00aff0',
-  },
-  {
-    name: 'C & C#',
-    level: 60,
-    icon: <TbBrandCSharp />,
-    desc: 'Programação estruturada e desenvolvimento com .NET/Windows Forms.',
-    color: '#9b59b6',
-  },
-  {
-    name: 'React',
-    level: 60,
-    icon: <FaReact />,
-    desc: 'Componentes funcionais, hooks, estado e construção de UIs modernas.',
+    title: 'Front-end',
+    icon: <LuMonitor />,
     color: '#61dafb',
+    desc: 'Interfaces responsivas, componentes reutilizáveis e foco em usabilidade.',
+    items: [
+      { name: 'React', icon: <FaReact />, color: '#61dafb' },
+      { name: 'Next.js', icon: <SiNextdotjs />, color: '#f0f0f0' },
+      { name: 'TypeScript', icon: <SiTypescript />, color: '#3178c6' },
+      { name: 'JavaScript', icon: <FaJs />, color: '#f7df1e' },
+      { name: 'HTML 5', icon: <FaHtml5 />, color: '#e34f26' },
+      { name: 'CSS 3', icon: <FaCss3Alt />, color: '#1572b6' },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#38bdf8' },
+    ],
   },
   {
-    name: 'Flutter',
-    level: 20,
-    icon: <FaFlutter />,
-    desc: 'Desenvolvimento mobile multiplataforma com Dart.',
-    color: '#54c5f8',
-  },
-  {
-    name: 'PHP',
-    level: 60,
-    icon: <FaPhp />,
-    desc: 'Desenvolvimento back-end e integração com banco de dados.',
+    title: 'Back-end',
+    icon: <LuServer />,
     color: '#777bb4',
+    desc: 'Regras de negócio, APIs e integrações com serviços externos.',
+    items: [
+      { name: 'PHP', icon: <FaPhp />, color: '#777bb4' },
+      { name: 'Laravel', icon: <SiLaravel />, color: '#ff2d20' },
+      { name: 'Node.js', icon: <SiNodedotjs />, color: '#5fa04e' },
+      { name: 'Java', icon: <FaJava />, color: '#f7c948' },
+      { name: 'C#', icon: <TbBrandCSharp />, color: '#9b59b6' },
+    ],
   },
   {
-    name: 'Pacote Office',
-    level: 60,
-    icon: <PiMicrosoftExcelLogo />,
-    desc: 'Excel, Word e PowerPoint para produtividade e relatórios.',
-    color: '#217346',
+    title: 'Banco de dados',
+    icon: <LuDatabase />,
+    color: '#3ecf8e',
+    desc: 'Modelagem, consultas complexas, migrations e relatórios personalizados.',
+    items: [
+      { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#4169e1' },
+      { name: 'Supabase', icon: <SiSupabase />, color: '#3ecf8e' },
+      { name: 'SQL Server', icon: <DiMsqlServer />, color: '#00aff0' },
+      { name: 'MySQL', icon: <SiMysql />, color: '#00758f' },
+      { name: 'Firebase', icon: <SiFirebase />, color: '#ffca28' },
+    ],
   },
   {
-    name: 'Photoshop',
-    level: 40,
-    icon: <DiPhotoshop />,
-    desc: 'Edição e tratamento de imagens para projetos visuais.',
-    color: '#31a8ff',
-  },
-  {
-    name: 'GitHub',
-    level: 60,
-    icon: <FaGithub />,
-    desc: 'Versionamento de código, pull requests e colaboração em projetos.',
-    color: '#f0f0f0',
-  },
-  {
-    name: 'Windows',
-    level: 60,
-    icon: <FaWindows />,
-    desc: 'Administração, configuração e suporte ao sistema operacional.',
-    color: '#0078d4',
-  },
-  {
-    name: 'Inglês',
-    level: 60,
-    icon: <MdTranslate />,
-    desc: 'Leitura técnica, documentações e comunicação no contexto de TI.',
+    title: 'Ferramentas & outros',
+    icon: <LuWrench />,
     color: '#ff9800',
+    desc: 'Versionamento, deploy, containers, mobile e o que mais o projeto pedir.',
+    items: [
+      { name: 'Git & GitHub', icon: <FaGithub />, color: '#f0f0f0' },
+      { name: 'Docker', icon: <SiDocker />, color: '#2496ed' },
+      { name: 'Vite', icon: <SiVite />, color: '#a78bfa' },
+      { name: 'Vercel', icon: <SiVercel />, color: '#f0f0f0' },
+      { name: 'Flutter', icon: <SiFlutter />, color: '#54c5f8' },
+      { name: 'Photoshop', icon: <DiPhotoshop />, color: '#31a8ff' },
+      { name: 'Inglês técnico', icon: <MdTranslate />, color: '#ff9800' },
+    ],
   },
 ]
 
@@ -119,20 +79,22 @@ export default function Skills() {
       </div>
 
       <div className={styles.grid}>
-        {skills.map((skill) => (
-          <div key={skill.name} className={styles.card} style={{ '--clr': skill.color }}>
+        {groups.map((g) => (
+          <div key={g.title} className={styles.card} style={{ '--clr': g.color }}>
             <div className={styles.cardTop}>
-              <span className={styles.icon}>{skill.icon}</span>
-              <div className={styles.bar}>
-                <div
-                  className={styles.barFill}
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-              <span className={styles.percent}>{skill.level}%</span>
+              <span className={styles.icon}>{g.icon}</span>
+              <h3 className={styles.groupName}>{g.title}</h3>
+              <span className={styles.count}>{String(g.items.length).padStart(2, '0')}</span>
             </div>
-            <h3 className={styles.skillName}>{skill.name}</h3>
-            <p className={styles.skillDesc}>{skill.desc}</p>
+            <p className={styles.groupDesc}>{g.desc}</p>
+            <ul className={styles.items}>
+              {g.items.map((item) => (
+                <li key={item.name} className={styles.item} style={{ '--ic': item.color }}>
+                  <span className={styles.itemIcon}>{item.icon}</span>
+                  {item.name}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

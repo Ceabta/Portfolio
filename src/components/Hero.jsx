@@ -29,10 +29,11 @@ export default function Hero() {
         <div className={styles.cta}>
           <a href="#work" className={styles.btnPrimary}>Ver Projetos</a>
           <a href="#contact" className={styles.btnSecondary}>Falar Comigo</a>
+          <a href="/curriculo-leonardo-cesario.pdf" download className={styles.btnSecondary}>Baixar Currículo ↓</a>
         </div>
 
         <div className={styles.stack}>
-          {['JS', 'HTML/CSS', 'Java', 'SQL', 'C & C#', 'React', 'TypeScript', 'Flutter', 'PHP'].map((t) => (
+          {['React', 'Next.js', 'TypeScript', 'PHP', 'Laravel', 'SQL', 'Supabase', 'Java', 'C#'].map((t) => (
             <span key={t} className={styles.tag}>{t}</span>
           ))}
         </div>
