@@ -3,11 +3,12 @@ import styles from './Work.module.css'
 const projects = [
   {
     num: '01',
-    title: "HORIZON",
-    desc: 'Site para controle de tarefas e organização. Foco em design moderno, responsivo e usabilidade.',
-    tags: ['JS', 'React', 'Typescript', 'Tailwind CSS', 'Vite', 'Supabase'],
-    url: 'https://horizon-gestao-demo.vercel.app',
-    repo: 'https://github.com/Ceabta/Horizon',
+    title: "Bolão da Família",
+    desc: 'Bolão da Copa do Mundo para a família. Palpites por jogo, ranking automático e placares sincronizados em tempo real com a API football-data.org.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'REST API'],
+    url: 'https://bolao-familiacat.vercel.app/',
+    repo: 'https://github.com/Ceabta/bolao-copa',
+    notice: 'Site no ar · banco de dados pausado no momento',
   },
   {
     num: '02',
@@ -45,6 +46,12 @@ export default function Work() {
             </div>
             <div className={styles.info}>
               <h3 className={styles.projectTitle}>{p.title}</h3>
+              {p.notice && (
+                <p className={styles.notice}>
+                  <span className={styles.noticeDot} aria-hidden="true" />
+                  {p.notice}
+                </p>
+              )}
               <p className={styles.desc}>{p.desc}</p>
               <div className={styles.tags}>
                 {p.tags.map((t) => (
@@ -55,7 +62,7 @@ export default function Work() {
             <div className={styles.links}>
               {p.url && (
                 <a href={p.url} target="_blank" rel="noopener noreferrer" className={styles.linkBtn}>
-                  Demo ↗
+                  Ver site ↗
                 </a>
               )}
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>

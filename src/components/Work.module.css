@@ -71,6 +71,30 @@
   color: var(--accent);
 }
 
+.notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #ffb020;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border: 1px solid rgba(255, 176, 32, 0.3);
+  background: rgba(255, 176, 32, 0.06);
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.noticeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffb020;
+  flex-shrink: 0;
+}
+
 .desc {
   font-size: 0.9rem;
   color: var(--muted);
