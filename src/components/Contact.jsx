@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { MdEmail } from "react-icons/md";
-import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 import styles from './Contact.module.css'
 
@@ -70,12 +69,6 @@ export default function Contact() {
                 <MdEmail />
               </span>
               <span>leocesario.abta@gmail.com</span>
-            </a>
-            <a href="tel:+5511939321415" className={styles.contactItem}>
-              <span className={styles.ciIcon}>
-                <BsFillTelephoneFill />
-              </span>
-              <span>+55 (11) 93932-1415</span>
             </a>
             <span className={styles.contactItem}>
               <span className={styles.ciIcon}>📍</span>

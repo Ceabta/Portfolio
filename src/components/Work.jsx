@@ -20,6 +20,7 @@ const projects = [
     tags: ['React', 'Typescript', 'Tailwind CSS', 'Vite', 'Supabase'],
     url: '',
     repo: 'https://github.com/Ceabta/Evoluto',
+    notice: { type: 'info', text: 'Uso pessoal · código aberto' },
     image: '/projetos/evoluto.jpg',
     icon: <LuDumbbell />,
   },
