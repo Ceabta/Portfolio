@@ -1,5 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Christmas from './components/Christmas'
+import { isChristmasSeason } from './components/ChristmasTree'
 import About from './components/About'
 import Skills from './components/Skills'
 import Work from './components/Work'
@@ -11,6 +13,7 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
+      {isChristmasSeason() && <Christmas />}
       <About />
       <Skills />
       <Work />

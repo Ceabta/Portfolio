@@ -1,0 +1,70 @@
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(40, 60, 110, 0.18), transparent 70%),
+    #060910;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 0 80px rgba(0, 255, 136, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  font-family: var(--font-mono);
+}
+
+.header,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.time {
+  color: #ff6b6b;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage {
+  width: 100%;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 0.68rem;
+  color: #666;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats b {
+  font-weight: 400;
+  color: #9aa3b2;
+}
+
+.footer {
+  color: #888;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.kw { color: var(--accent2); }
+.bool { color: #ff6b6b; }
+.fn { color: var(--accent); }
+
+.running {
+  color: #555;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
